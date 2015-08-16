@@ -14,6 +14,7 @@ module Xeroizer
       string   :account_code
       string   :account_type
       string   :account_name
+      string   :description
       decimal  :net_amount
       decimal  :gross_amount
       decimal  :tax_amount
