@@ -53,6 +53,8 @@ module Xeroizer
       validates_presence_of :name, :unless => Proc.new { | contact | contact.contact_id.present?}
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
 
+      belongs_to :payment_terms, :model_name => 'ContactPaymentTerm', :skip_writer => true
+
       def email_address?
         email_address.present?
       end
