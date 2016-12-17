@@ -66,10 +66,7 @@ module Xeroizer
       decimal       :currency_rate
       datetime      :fully_paid_on_date
       boolean       :sent_to_contact
-<<<<<<< HEAD
       decimal       :remaining_credit
-=======
->>>>>>> e091f2a244c24774b2f3233c775c9978c25deca7
       boolean       :has_attachments
       
       belongs_to    :contact

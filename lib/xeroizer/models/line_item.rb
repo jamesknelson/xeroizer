@@ -22,7 +22,7 @@ module Xeroizer
       string  :line_item_id
       
       has_many  :tracking, :model_name => 'TrackingCategoryChild'
-      
+
       def line_amount=(line_amount)
         @line_amount_set = true
         attributes[:line_amount] = line_amount
@@ -31,7 +31,7 @@ module Xeroizer
       # Calculate the line_total (if there is a quantity and unit_amount).
       # Description-only lines have been allowed since Xero V2.09.
       def line_amount(summary_only = false)
-        return attributes[:line_amount] if summary_only || @line_amount_set
+        return attributes[:line_amount] if summary_only || defined? @line_amount_set
         
         BigDecimal((quantity * unit_amount).to_s).round(2) if quantity && unit_amount
       end
