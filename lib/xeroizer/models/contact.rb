@@ -49,8 +49,7 @@ module Xeroizer
 
       has_many :sales_tracking_categories, :model_name => 'ContactSalesTrackingCategory'
       has_many :purchases_tracking_categories, :model_name => 'ContactPurchasesTrackingCategory'
-
-      validates_presence_of :name, :unless => Proc.new { | contact | contact.contact_id.present?}
+      belongs_to :payment_terms, :model_name => 'ContactPaymentTerm', :skip_writer => true
       validates_inclusion_of :contact_status, :in => CONTACT_STATUS.keys, :allow_blanks => true
 
       belongs_to :payment_terms, :model_name => 'ContactPaymentTerm', :skip_writer => true
